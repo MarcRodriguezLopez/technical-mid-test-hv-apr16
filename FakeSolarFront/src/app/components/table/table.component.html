@@ -1,1 +1,26 @@
-<p>table works!</p>
+<div class="container mt-5">
+    
+    <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>Title</th>
+            <th>Inspected By</th>
+            <th>Warnings</th>
+            <th>Criticals</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let insp of insps"
+            [ngClass]="{
+                'bg-danger' : insp.issuesCriticalCount > 0,
+                'bg-warning' : insp.issuesWarningCount > 0
+            }"
+        >
+          <td>{{ insp.title }}</td>
+          <td>{{ insp.inspectorName }}</td>
+          <td>{{ insp.issuesWarningCount }}</td>
+          <td>{{ insp.issuesCriticalCount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

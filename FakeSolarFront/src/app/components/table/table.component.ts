@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import { DataService } from '../../services/data.service';
+
+interface INSPECTIONS {
+  title: String,
+  inspectorName: String,
+  itemsOk: Number,
+  issuesWarningCount: Number,
+  issuesCriticalCount: Number,
+  company: String,
+  color: any
+}
 
 @Component({
   selector: 'app-table',
@@ -8,9 +18,17 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class TableComponent implements OnInit {
 
+  insps: INSPECTIONS[] = [];
+
   constructor( private dataService: DataService) { }
 
   ngOnInit(): void {
+
+    this.dataService.getInspections()
+      .subscribe( (inspections: any) => {
+        this.insps = inspections;
+      })
+
   }
 
 }

@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
 import { ResumeComponent } from './components/resume/resume.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -14,7 +17,9 @@ import { ResumeComponent } from './components/resume/resume.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
